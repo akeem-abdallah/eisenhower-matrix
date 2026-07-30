@@ -8,3 +8,4 @@
 - learning/plan.md — known (2026-07-30) — the build plan and locked decisions
 - learning/knowledge-graph.md — known (2026-07-30) — the living map of what you actually know
 - learning/file-map.md — known (2026-07-30) — this file: why every file in the repo exists
+- .git/ — generated (2026-07-30) — git's own tracking data → [[git-source-control]], never edit directly, always rebuildable from history

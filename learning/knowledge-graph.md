@@ -4,11 +4,18 @@
 <!-- seed: not yet taught | introduced: explained once | practicing: used it with help | understood: explained in own words + passed a quiz -->
 
 ## git-source-control
-- status: seed
+- status: practicing
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-07-30
+- last-reviewed: 2026-07-30
+- evidence: correctly predicted `git init` creates a hidden `.git` folder; ran it in the wrong directory (D:\Claude instead of the project folder), diagnosed and fixed it himself after being shown the mismatch; correctly predicted the untracked-files delete was safe; needed a re-explanation to grasp add-vs-commit ("I don't understand what all of this does") — after the save-game analogy, completed add → commit → git config → commit successfully; afterward asked "what's git for" twice (mechanics landed before purpose did) — after a "what problem does it solve" reframe, correctly explained in his own words that git lets you revert to a past checkpoint when something breaks
+
+## github-concept
+- status: introduced
+- depends-on: git-source-control
+- introduced: 2026-07-30
+- last-reviewed: 2026-07-30
+- evidence: asked what GitHub is, unprompted; explained as a hosting service for git history (backup + sharing), separate from git itself — not yet checked in his own words
 
 ## frontend-concept
 - status: introduced

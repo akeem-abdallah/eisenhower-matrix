@@ -12,7 +12,7 @@
 **Deliverable:** A page in the browser showing the 4 colored quadrants, hardcoded, no data yet.
 **Concepts:** html-structure, css-layout, css-color-coding, git-source-control
 **Tasks:**
-- [ ] 1.1 Initialize git and make a baseline commit
+- [x] 1.1 Initialize git and make a baseline commit
 - [ ] 1.2 Create `index.html` with a basic page structure and a heading
 - [ ] 1.3 Lay out the 4 quadrants as a grid using CSS
 - [ ] 1.4 Color-code each quadrant
