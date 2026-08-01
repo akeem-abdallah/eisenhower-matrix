@@ -8,19 +8,25 @@
 
 ## Sections
 
-### 1. Static quadrant page  [ ] not started
+### 1. Static quadrant page  [x] done
 **Deliverable:** A page in the browser showing the 4 colored quadrants, hardcoded, no data yet.
 **Concepts:** html-structure, css-layout, css-color-coding, git-source-control
 **Tasks:**
 - [x] 1.1 Initialize git and make a baseline commit
-- [ ] 1.2 Create `index.html` with a basic page structure and a heading
-- [ ] 1.3 Lay out the 4 quadrants as a grid using CSS
-- [ ] 1.4 Color-code each quadrant
-- [ ] 1.5 Commit the finished static page
+- [x] 1.2 Create `index.html` with a basic page structure and a heading
+- [x] 1.3 Lay out the 4 quadrants as a grid using CSS
+- [x] 1.4 Color-code each quadrant
+- [x] 1.5 Commit the finished static page
 
 ### 2. Interactive but temporary  [ ] not started
 **Deliverable:** Type a task/habit, add it to a quadrant, mark it complete — all in-browser, nothing saved permanently yet.
 **Concepts:** dom-manipulation, event-listeners, js-functions, in-memory-data
+**Tasks:**
+- [x] 2.1 Add a text input, a quadrant dropdown, and an "Add" button to the page
+- [x] 2.2 Write a JS function that runs when "Add" is clicked and reads what you typed
+- [x] 2.3 Make that function create a new entry and insert it into the chosen quadrant on the page
+- [ ] 2.4 Add a way to mark an entry complete (e.g. a checkbox that changes its style)
+- [ ] 2.5 Confirm the limits: refresh the page and see everything disappear — this is why Section 5 exists
 
 ### 3. A real server  [ ] not started
 **Deliverable:** The page loads from a running Flask server (localhost) instead of just opening the file directly.

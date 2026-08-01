@@ -8,7 +8,7 @@
 - depends-on: none
 - introduced: 2026-07-30
 - last-reviewed: 2026-07-30
-- evidence: correctly predicted `git init` creates a hidden `.git` folder; ran it in the wrong directory (D:\Claude instead of the project folder), diagnosed and fixed it himself after being shown the mismatch; correctly predicted the untracked-files delete was safe; needed a re-explanation to grasp add-vs-commit ("I don't understand what all of this does") — after the save-game analogy, completed add → commit → git config → commit successfully; afterward asked "what's git for" twice (mechanics landed before purpose did) — after a "what problem does it solve" reframe, correctly explained in his own words that git lets you revert to a past checkpoint when something breaks
+- evidence: correctly predicted `git init` creates a hidden `.git` folder; ran it in the wrong directory (D:\Claude instead of the project folder), diagnosed and fixed it himself after being shown the mismatch; correctly predicted the untracked-files delete was safe; needed a re-explanation to grasp add-vs-commit ("I don't understand what all of this does") — after the save-game analogy, completed add → commit → git config → commit successfully; afterward asked "what's git for" twice (mechanics landed before purpose did) — after a "what problem does it solve" reframe, correctly explained in his own words that git lets you revert to a past checkpoint when something breaks; second add+commit cycle (index.html) run cleanly and independently, correctly explained why `add` must precede `commit` ("otherwise we would be committing an empty list")
 
 ## github-concept
 - status: introduced
@@ -88,46 +88,53 @@
 - evidence: explained clearly — "Render is way simpler and I don't need AWS's complexity yet"
 
 ## html-structure
-- status: seed
+- status: practicing
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-07-30
+- last-reviewed: 2026-07-30
+- evidence: filled in title/heading blanks in a scaffolded index.html correctly; correctly predicted that the `<title>` shows in the browser tab while `<h1>` shows on the visible page; added a `placeholder` attribute by writing only the raw value with no `name=` or quotes (correctly predicted "something's wrong" but needed the pattern spelled out — `name="value"` — before self-correcting and verifying it worked
 
 ## css-layout
-- status: seed
+- status: practicing
 - depends-on: html-structure
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-07-30
+- last-reviewed: 2026-07-30
+- evidence: first attempt at grid-template-columns omitted the property name and semicolon (wrote just the value); correctly predicted it wouldn't work before checking, self-identified the missing semicolon, needed a nudge to spot the missing property name, then correctly predicted the resulting 2x2 layout and confirmed it in the browser
+
+## css-class-selectors
+- status: practicing
+- depends-on: css-layout, html-structure
+- introduced: 2026-07-30
+- last-reviewed: 2026-07-30
+- evidence: explained that a shared `class="quadrant"` avoids repeating the same style 4 times ("similar to classes in python" — noted as a surface analogy, not an accurate one); after being taught the leading-dot selector syntax, correctly answered that a class shared by 4 elements applies the CSS rule to all 4
 
 ## css-color-coding
-- status: seed
-- depends-on: css-layout
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- status: practicing
+- depends-on: css-layout, css-class-selectors
+- introduced: 2026-07-30
+- last-reviewed: 2026-07-30
+- evidence: correctly filled in 4 valid CSS color values (pink, orange, lightblue, lightgreen) across 4 new per-quadrant classes; correctly predicted that the border/padding from the shared `.quadrant` class and the new background-color would both apply at once, not overwrite each other
 
 ## dom-manipulation
-- status: seed
+- status: practicing
 - depends-on: html-structure
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-07-30
+- last-reviewed: 2026-07-30
+- evidence: wrote createElement + textContent correctly on first try; initially didn't grasp building a dynamic querySelector string ("I didn't understand the third step"), needed a concrete worked example (entryQuadrant.value = "q3" walkthrough) before writing it correctly himself; recalled and applied appendChild unprompted; correctly predicted and then verified the entry lands in whichever quadrant was selected, across multiple quadrants; proactively removed the now-redundant alert() for cleanliness once asked
 
 ## event-listeners
-- status: seed
+- status: practicing
 - depends-on: dom-manipulation
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-07-30
+- last-reviewed: 2026-07-30
+- evidence: first attached the listener to the wrong element (input instead of button) and self-corrected after being pointed at the mismatch; correctly predicted "nothing happens" both when the handler was empty and when it targeted the wrong id — showed real understanding that a listener only fires on the exact element it's attached to
 
 ## js-functions
-- status: seed
+- status: practicing
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-07-30
+- last-reviewed: 2026-07-30
+- evidence: wrote a full click-handler function from a plain-language spec (no code skeleton given, per his own request for less scaffolding). Made and fixed several real mistakes along the way: used raw ids as if they were variables (`entry-text.value` — also hit the hyphen issue), passed two arguments to `alert()` instead of one concatenated string, and initially read the element instead of `.value` off it. Needed an extra explicit hint partway through, but the final code was self-written and tested working end-to-end
 
 ## in-memory-data
 - status: seed

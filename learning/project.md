@@ -49,4 +49,6 @@ How the app runs on your own machine while building, before it's live for anyone
 How it goes from running on your laptop to a real URL live on the internet.
 
 ## Notes
-- Model recommendation for this build: Sonnet 5, medium effort (bump to high if the agent starts skipping the teaching rules — dumping big code blocks, skipping predict-before-run).
+- Model recommendation for this build: Sonnet 5, low-medium effort (bump to high if the agent starts skipping the teaching rules — dumping big code blocks, skipping predict-before-run). Confirmed by Akeem 2026-07-30 that low effort is fine for this project's difficulty level.
+- **Editor: full Visual Studio 2026, not VS Code.** These are different products — don't suggest "VS Code" again; give Visual Studio-specific instructions (e.g. `Ctrl+K, Ctrl+D` to format, "Open Folder" for full IntelliSense, "ASP.NET and web development" workload if autocomplete is missing).
+- **Teaching-style adjustment (2026-07-30, Section 2):** after task 2.1, Akeem said "I feel like I'm not learning, you're just doing stuff for me" — accurate feedback that blanks were sized for `seed`-level concepts even as several had moved to `practicing`. From task 2.2 onward: explain the concept and give the shape/pieces in plain language, but he writes the actual code from scratch — no skeleton file with `TODO(you)` blanks for anything above `seed` level. This worked well (task 2.2/2.3 both fully self-written, with real mistakes made and self-corrected). Keep this as the default going forward, not just for Section 2.
