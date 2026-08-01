@@ -1,39 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Akeem's app</title>
-  <style>
-    .matrix {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-    .quadrant {
-      border: 2px solid #333;
-      padding: 20px;
-    }
-    .q1 {
-      background-color: pink;
-    }
-    .q2 {
-      background-color: orange;
-    }
-    .q3 {
-      background-color: lightblue;
-    }
-    .q4 {
-      background-color: lightgreen;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Akeem's app</title>
+    <style>
+        .matrix {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .quadrant {
+            border: 2px solid #333;
+            padding: 20px;
+        }
+
+        .q1 {
+            background-color: pink;
+        }
+
+        .q2 {
+            background-color: orange;
+        }
+
+        .q3 {
+            background-color: lightblue;
+        }
+
+        .q4 {
+            background-color: lightgreen;
+        }
+
+        .entry {
+            display: flex
+        }
+
+        .completed {
+            text-decoration: line-through
+        }
+
+    </style>
 </head>
 <body>
-  <h1>Eisenhower Matrix</h1>
-  <div class="matrix">
-    <div class="quadrant q1">Urgent & Important</div>
-    <div class="quadrant q2">Not Urgent & Important</div>
-    <div class="quadrant q3">Urgent & Not Important</div>
-    <div class="quadrant q4">Not Urgent & Not Important</div>
-  </div>
+    <h1>Eisenhower Matrix</h1>
+    <div class="controls">
+        <input type="text" id="entry-text" placeholder="Add a task or habit">
+        <select id="entry-quadrant">
+            <option value="q1">Urgent &amp; Important</option>
+            <option value="q2">Not Urgent &amp; Important</option>
+            <option value="q3">Urgent &amp; Not Important</option>
+            <option value="q4">Not Urgent &amp; Not Important</option>
+        </select>
+        <button id="add-btn">Add</button>
+    </div>
+    <div class="matrix">
+        <div class="quadrant q1">Urgent & Important</div>
+        <div class="quadrant q2">Not Urgent & Important</div>
+        <div class="quadrant q3">Urgent & Not Important</div>
+        <div class="quadrant q4">Not Urgent & Not Important</div>
+    </div>
+
+    <script>
+        button = document.getElementById("add-btn")
+        entryQuadrant = document.getElementById("entry-quadrant")
+        entryText = document.getElementById("entry-text")
+        button.addEventListener("click", function () {
+            newCheckbox = document.createElement("input")
+            newCheckbox.type = "checkbox"
+            newText = document.createElement("div")
+            newText.textContent = entryText.value
+            correctQuadrant = document.querySelector("." + entryQuadrant.value)
+            newEntry = document.createElement("div")
+            newEntry.className = "entry"
+            newEntry.appendChild(newText)
+            newEntry.appendChild(newCheckbox)
+            correctQuadrant.appendChild(newEntry)
+            newCheckbox.addEventListener("change", function () { newText.classList.toggle("completed")})
+
+        })
+    </script>
 </body>
 </html>

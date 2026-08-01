@@ -98,15 +98,15 @@
 - status: practicing
 - depends-on: html-structure
 - introduced: 2026-07-30
-- last-reviewed: 2026-07-30
-- evidence: first attempt at grid-template-columns omitted the property name and semicolon (wrote just the value); correctly predicted it wouldn't work before checking, self-identified the missing semicolon, needed a nudge to spot the missing property name, then correctly predicted the resulting 2x2 layout and confirmed it in the browser
+- last-reviewed: 2026-08-01
+- evidence: first attempt at grid-template-columns omitted the property name and semicolon (wrote just the value); correctly predicted it wouldn't work before checking, self-identified the missing semicolon, needed a nudge to spot the missing property name, then correctly predicted the resulting 2x2 layout and confirmed it in the browser. 2026-08-01: after being taught display:flex as a sibling of display:grid, correctly predicted the checkbox would land beside the text and confirmed it in the browser; needed inline-vs-block explained to him to understand why an unstyled checkbox+div landed on separate lines
 
 ## css-class-selectors
 - status: practicing
 - depends-on: css-layout, html-structure
 - introduced: 2026-07-30
-- last-reviewed: 2026-07-30
-- evidence: explained that a shared `class="quadrant"` avoids repeating the same style 4 times ("similar to classes in python" — noted as a surface analogy, not an accurate one); after being taught the leading-dot selector syntax, correctly answered that a class shared by 4 elements applies the CSS rule to all 4
+- last-reviewed: 2026-08-01
+- evidence: explained that a shared `class="quadrant"` avoids repeating the same style 4 times ("similar to classes in python" — noted as a surface analogy, not an accurate one); after being taught the leading-dot selector syntax, correctly answered that a class shared by 4 elements applies the CSS rule to all 4. 2026-08-01: wrote `.task { display:flex }` instead of `.entry`, missing that the selector must match the className set in JS — self-corrected once pointed at the mismatch
 
 ## css-color-coding
 - status: practicing
@@ -119,15 +119,15 @@
 - status: practicing
 - depends-on: html-structure
 - introduced: 2026-07-30
-- last-reviewed: 2026-07-30
-- evidence: wrote createElement + textContent correctly on first try; initially didn't grasp building a dynamic querySelector string ("I didn't understand the third step"), needed a concrete worked example (entryQuadrant.value = "q3" walkthrough) before writing it correctly himself; recalled and applied appendChild unprompted; correctly predicted and then verified the entry lands in whichever quadrant was selected, across multiple quadrants; proactively removed the now-redundant alert() for cleanliness once asked
+- last-reviewed: 2026-08-01
+- evidence: wrote createElement + textContent correctly on first try; initially didn't grasp building a dynamic querySelector string ("I didn't understand the third step"), needed a concrete worked example (entryQuadrant.value = "q3" walkthrough) before writing it correctly himself; recalled and applied appendChild unprompted; correctly predicted and then verified the entry lands in whichever quadrant was selected, across multiple quadrants; proactively removed the now-redundant alert() for cleanliness once asked. 2026-08-01: created a checkbox + wrapper div (newEntry) to group checkbox and text via appendChild, correctly predicting the resulting layout each time; needed the inline-vs-block explanation given to him (didn't derive it himself) before he could explain why the checkbox first appeared next to the quadrant label instead of the task text; confused `.type` with `.className` when first asked to set a CSS class from JS ("newEntry.type = 'flex'")
 
 ## event-listeners
-- status: practicing
+- status: understood
 - depends-on: dom-manipulation
 - introduced: 2026-07-30
-- last-reviewed: 2026-07-30
-- evidence: first attached the listener to the wrong element (input instead of button) and self-corrected after being pointed at the mismatch; correctly predicted "nothing happens" both when the handler was empty and when it targeted the wrong id — showed real understanding that a listener only fires on the exact element it's attached to
+- last-reviewed: 2026-08-01
+- evidence: first attached the listener to the wrong element (input instead of button) and self-corrected after being pointed at the mismatch; correctly predicted "nothing happens" both when the handler was empty and when it targeted the wrong id — showed real understanding that a listener only fires on the exact element it's attached to. 2026-08-01: correctly chose newCheckbox as the listener target and explained why unprompted ("the status is updated only through the checkbox"); wrote `newCheckbox.addEventListener("change", newText.classList.toggle("completed"))` which runs the toggle immediately instead of on change — self-diagnosed the bug correctly when asked to predict the outcome ("it will happen right away, so I always add the function") and fixed it by wrapping in a function, transferring the pattern from the click handler unprompted
 
 ## js-functions
 - status: practicing

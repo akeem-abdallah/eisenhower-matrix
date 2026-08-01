@@ -25,7 +25,7 @@
 - [x] 2.1 Add a text input, a quadrant dropdown, and an "Add" button to the page
 - [x] 2.2 Write a JS function that runs when "Add" is clicked and reads what you typed
 - [x] 2.3 Make that function create a new entry and insert it into the chosen quadrant on the page
-- [ ] 2.4 Add a way to mark an entry complete (e.g. a checkbox that changes its style)
+- [x] 2.4 Add a way to mark an entry complete (e.g. a checkbox that changes its style)
 - [ ] 2.5 Confirm the limits: refresh the page and see everything disappear — this is why Section 5 exists
 
 ### 3. A real server  [ ] not started
