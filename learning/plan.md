@@ -28,15 +28,15 @@
 - [x] 2.4 Add a way to mark an entry complete (e.g. a checkbox that changes its style)
 - [x] 2.5 Confirm the limits: refresh the page and see everything disappear — this is why Section 5 exists
 
-### 3. A real server  [ ] not started
+### 3. A real server  [x] done
 **Deliverable:** The page loads from a running Flask server (localhost) instead of just opening the file directly.
 **Concepts:** what-is-a-server, flask-routes, http-basics, local-dev-server
 **Tasks:**
 - [x] 3.1 Install Flask into the project
 - [x] 3.2 Create a minimal `app.py` with one route that returns simple text
 - [x] 3.3 Run the Flask dev server and view that route in the browser
-- [ ] 3.4 Change the route to serve `index.html` instead of plain text
-- [ ] 3.5 Confirm the matrix page works identically when loaded through Flask vs. opened as a file
+- [x] 3.4 Change the route to serve `index.html` instead of plain text
+- [x] 3.5 Confirm the matrix page works identically when loaded through Flask vs. opened as a file
 
 ### 4. Frontend talks to backend  [ ] not started
 **Deliverable:** The page fetches its quadrant data from the server instead of having it hardcoded in the JS file.

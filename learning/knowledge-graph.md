@@ -162,14 +162,14 @@
 - depends-on: what-is-a-server, flask-choice
 - introduced: 2026-08-02
 - last-reviewed: 2026-08-02
-- evidence: didn't yet have an intuition for what a "route" is when asked cold ("Idk"); wrote the `@app.route("/")` decorator and handler function correctly from a described spec, no errors — mechanical execution is solid, conceptual grasp not yet self-demonstrated. Same day, after seeing `/` work: correctly predicted that requesting an undefined route (`/tasks`) would error ("it would do nothing or an error"), then confirmed the actual 404 in the browser — real conceptual grasp shown, but still same-day so capped at practicing
+- evidence: didn't yet have an intuition for what a "route" is when asked cold ("Idk"); wrote the `@app.route("/")` decorator and handler function correctly from a described spec, no errors — mechanical execution is solid, conceptual grasp not yet self-demonstrated. Same day, after seeing `/` work: correctly predicted that requesting an undefined route (`/tasks`) would error ("it would do nothing or an error"), then confirmed the actual 404 in the browser — real conceptual grasp shown, but still same-day so capped at practicing. Same day: correctly predicted that swapping the route's return value to `send_file("index.html")` would serve the actual matrix page, then confirmed it in the browser. Same day: after two rounds of clarification, correctly restated a route as "making a line towards a specific page," and correctly described the `app` object as "an object with properties" (built-in abilities like `.route()`/`.run()`) rather than "a bunch of functions" once corrected — needed real back-and-forth to get there, not first-pass
 
 ## http-basics
-- status: seed
+- status: practicing
 - depends-on: what-is-a-server
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: correctly predicted opening `index.html` directly vs. via Flask would behave identically for now, correctly reasoning it's the same file either way; after being told the difference is delivery mechanism (disk read vs. HTTP request/response), asked a clarifying follow-up unprompted ("what do you mean 'how it gets to the browser'") rather than nodding along
 
 ## local-dev-server
 - status: practicing
@@ -205,6 +205,13 @@
 - introduced: —
 - last-reviewed: —
 - evidence: —
+
+## python-main-guard
+- status: practicing
+- depends-on: none
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: initially said "I don't get it" to the abstract explanation of `if __name__ == "__main__":`; after a concrete worked example (a hypothetical `test_app.py` importing `app.py` and accidentally starting a real server without the guard), confirmed understanding ("yes I get it")
 
 ## sql-basics
 - status: seed
