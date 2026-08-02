@@ -151,18 +151,18 @@
 - evidence: discovered unprompted that checking an older task's checkbox crossed out the newest task's text instead; correctly reasoned that `newText = ...` without `let` is "the same one being overwritten" each click, and correctly predicted that an old checkbox's listener would reference "the latest newText" at the moment it fires — strong self-driven diagnosis. Needed to be told the `let` fix itself and which 4 lines to apply it to (two "idk"s), but verified the fix worked correctly across multiple out-of-order checkboxes. Later the same day: while extracting `createEntry` into its own function, correctly identified that variables declared inside it (`newCheckbox`/`newText`) wouldn't be visible in the click handler ("they live in the createEntry function" → correctly predicted "it doesn't work now"), then independently fixed it by moving the `change` listener inside `createEntry` next to its declarations
 
 ## what-is-a-server
-- status: seed
+- status: introduced
 - depends-on: backend-concept
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: after being told a server listens for requests and sends responses, correctly restated the core idea unprompted ("app.py will be the server and when the browser asks for the website it sends it through my network") — reasonably solid first-contact grasp, not yet checked against a harder case
 
 ## flask-routes
-- status: seed
+- status: introduced
 - depends-on: what-is-a-server, flask-choice
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: didn't yet have an intuition for what a "route" is when asked cold ("Idk"); wrote the `@app.route("/")` decorator and handler function correctly from a described spec, no errors — mechanical execution is solid, conceptual grasp not yet self-demonstrated
 
 ## http-basics
 - status: seed

@@ -68,9 +68,9 @@
             let checkbox = document.createElement("input")
             let taskText = document.createElement("div")
 
+            entry.className = "entry"
             checkbox.type = "checkbox"
             taskText.textContent = text.value
-            entry.className = "entry"
             entry.appendChild(taskText)
             entry.appendChild(checkbox)
             checkbox.addEventListener("change", function () { taskText.classList.toggle("completed") })

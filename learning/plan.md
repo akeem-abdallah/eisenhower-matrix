@@ -33,7 +33,7 @@
 **Concepts:** what-is-a-server, flask-routes, http-basics, local-dev-server
 **Tasks:**
 - [x] 3.1 Install Flask into the project
-- [ ] 3.2 Create a minimal `app.py` with one route that returns simple text
+- [x] 3.2 Create a minimal `app.py` with one route that returns simple text
 - [ ] 3.3 Run the Flask dev server and view that route in the browser
 - [ ] 3.4 Change the route to serve `index.html` instead of plain text
 - [ ] 3.5 Confirm the matrix page works identically when loaded through Flask vs. opened as a file
