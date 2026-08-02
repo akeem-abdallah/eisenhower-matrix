@@ -158,11 +158,11 @@
 - evidence: after being told a server listens for requests and sends responses, correctly restated the core idea unprompted ("app.py will be the server and when the browser asks for the website it sends it through my network") — reasonably solid first-contact grasp, not yet checked against a harder case
 
 ## flask-routes
-- status: introduced
+- status: practicing
 - depends-on: what-is-a-server, flask-choice
 - introduced: 2026-08-02
 - last-reviewed: 2026-08-02
-- evidence: didn't yet have an intuition for what a "route" is when asked cold ("Idk"); wrote the `@app.route("/")` decorator and handler function correctly from a described spec, no errors — mechanical execution is solid, conceptual grasp not yet self-demonstrated
+- evidence: didn't yet have an intuition for what a "route" is when asked cold ("Idk"); wrote the `@app.route("/")` decorator and handler function correctly from a described spec, no errors — mechanical execution is solid, conceptual grasp not yet self-demonstrated. Same day, after seeing `/` work: correctly predicted that requesting an undefined route (`/tasks`) would error ("it would do nothing or an error"), then confirmed the actual 404 in the browser — real conceptual grasp shown, but still same-day so capped at practicing
 
 ## http-basics
 - status: seed
@@ -172,11 +172,11 @@
 - evidence: —
 
 ## local-dev-server
-- status: seed
+- status: practicing
 - depends-on: local-dev-environment, what-is-a-server
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: correctly predicted `python app.py` would start the server on `127.0.0.1:5000` and not return the terminal prompt; ran it, viewed `/` at that address, and confirmed the response in his own browser
 
 ## rest-apis
 - status: seed
