@@ -140,8 +140,8 @@
 - status: practicing
 - depends-on: js-functions
 - introduced: 2026-08-01
-- last-reviewed: 2026-08-01
-- evidence: correctly predicted and confirmed that refreshing wipes all added tasks; initial explanation was surface-level ("they're not getting saved"/"living somewhere idk"), but after being told DOM elements live only in the browser's temporary memory until refresh, confirmed understanding in his own words ("I get it now, its the browsers memory")
+- last-reviewed: 2026-08-02
+- evidence: correctly predicted and confirmed that refreshing wipes all added tasks; initial explanation was surface-level ("they're not getting saved"/"living somewhere idk"), but after being told DOM elements live only in the browser's temporary memory until refresh, confirmed understanding in his own words ("I get it now, its the browsers memory"). 2026-08-02: correctly predicted a task added via the "Add" button wouldn't survive a refresh once the app also had a fetched, server-backed list ("its not there because its not getting saved into the api/tasks"); after one correction (mistakenly called the hardcoded Python list a "database"), correctly explained the real distinction unprompted ("the list isn't altered and its sitting in my pc... the button tasks are just being created in the browser")
 
 ## variable-scope
 - status: practicing
@@ -179,32 +179,32 @@
 - evidence: correctly predicted `python app.py` would start the server on `127.0.0.1:5000` and not return the terminal prompt; ran it, viewed `/` at that address, and confirmed the response in his own browser
 
 ## rest-apis
-- status: seed
+- status: practicing
 - depends-on: api-concept, http-basics
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: correctly predicted, before running, that naming a Flask route function `tasks()` (same name as the global `tasks` list) would overwrite the list reference ("oh it gets reassigned to the function") — transferred the variable-scope/shared-name lesson from earlier sections unprompted; renamed it to `get_tasks` correctly and confirmed `/api/tasks` returned the right JSON
 
 ## fetch-api
-- status: seed
+- status: practicing
 - depends-on: rest-apis, dom-manipulation
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: confirmed the "Promise/IOU" framing made sense as a reason `fetch()` can't be used synchronously; wrote the `fetch().then().then()` skeleton correctly from a description, confirmed the logged data in the console; when the `createEntry` param mismatch was surfaced (a plain string doesn't have `.value`), first proposed an unrelated fix (a separate JS list) before landing on the correct one (drop `.value` in `createEntry`, pass `entryText.value` at the call site) once walked through it; wrote the `.forEach` loop correctly from a description and confirmed real fetched tasks rendering in the correct quadrants
 
 ## json
-- status: seed
+- status: practicing
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: when asked what a task-list route should send back, unprompted named all three needed fields correctly ("taskText, the quadrant its in, and whether its completed or not"); wrote a matching Python list-of-dicts (`tasks = [{"text":..., "quadrant":..., "completed": False}, ...]`) correctly on first try; confirmed the resulting JSON output in the browser matched the structure. Same day: correctly explained the `[ ]`/`{ }` structure in his own words ("[ ] is a list and { } is a dictionary")
 
 ## request-response-cycle
-- status: seed
+- status: introduced
 - depends-on: http-basics
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: saw the real request/response pair happen end to end via `fetch("/api/tasks")` — the Network tab showing a 200 status, then the parsed JSON response used to render entries; not yet asked to explain the cycle in his own words
 
 ## python-main-guard
 - status: practicing

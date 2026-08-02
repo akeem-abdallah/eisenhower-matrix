@@ -62,6 +62,16 @@
 
     <script>
 
+        fetch("/api/tasks")
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(function (task) {
+                    let entry = createEntry(task.text)
+                    let correctQuadrant = document.querySelector("." + task.quadrant)
+                    correctQuadrant.appendChild(entry)
+                })
+           })
+
         function createEntry(text) {
 
             let entry = document.createElement("div")
@@ -70,7 +80,7 @@
 
             entry.className = "entry"
             checkbox.type = "checkbox"
-            taskText.textContent = text.value
+            taskText.textContent = text
             entry.appendChild(taskText)
             entry.appendChild(checkbox)
             checkbox.addEventListener("change", function () { taskText.classList.toggle("completed") })
@@ -86,7 +96,7 @@
         button.addEventListener("click", function () {
 
             if (entryText.value.trim() === "") {return}
-            let entry = createEntry(entryText)
+            let entry = createEntry(entryText.value)
             let correctQuadrant = document.querySelector("." + entryQuadrant.value)
             correctQuadrant.appendChild(entry)
             

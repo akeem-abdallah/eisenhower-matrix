@@ -38,9 +38,14 @@
 - [x] 3.4 Change the route to serve `index.html` instead of plain text
 - [x] 3.5 Confirm the matrix page works identically when loaded through Flask vs. opened as a file
 
-### 4. Frontend talks to backend  [ ] not started
+### 4. Frontend talks to backend  [x] done
 **Deliverable:** The page fetches its quadrant data from the server instead of having it hardcoded in the JS file.
 **Concepts:** rest-apis, fetch-api, json, request-response-cycle
+**Tasks:**
+- [x] 4.1 Add a Flask route `/api/tasks` that returns a hardcoded list of tasks as JSON
+- [x] 4.2 View that route directly in the browser and understand the JSON format it returns
+- [x] 4.3 In JS, `fetch()` `/api/tasks` when the page loads and use the results to build each task's entry in its quadrant (reusing `createEntry`)
+- [x] 4.4 Confirm: refresh the page — the same tasks reappear, coming from the server this time
 
 ### 5. Remembering things  [ ] not started
 **Deliverable:** Add a task, restart the server, refresh the page — it's still there.
