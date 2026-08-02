@@ -133,15 +133,22 @@
 - status: practicing
 - depends-on: none
 - introduced: 2026-07-30
-- last-reviewed: 2026-07-30
-- evidence: wrote a full click-handler function from a plain-language spec (no code skeleton given, per his own request for less scaffolding). Made and fixed several real mistakes along the way: used raw ids as if they were variables (`entry-text.value` — also hit the hyphen issue), passed two arguments to `alert()` instead of one concatenated string, and initially read the element instead of `.value` off it. Needed an extra explicit hint partway through, but the final code was self-written and tested working end-to-end
+- last-reviewed: 2026-08-01
+- evidence: wrote a full click-handler function from a plain-language spec (no code skeleton given, per his own request for less scaffolding). Made and fixed several real mistakes along the way: used raw ids as if they were variables (`entry-text.value` — also hit the hyphen issue), passed two arguments to `alert()` instead of one concatenated string, and initially read the element instead of `.value` off it. Needed an extra explicit hint partway through, but the final code was self-written and tested working end-to-end. 2026-08-01: independently found and diagnosed a shared-variable bug in his own click handler (see variable-scope). 2026-08-01: initiated and mostly self-drove an unprompted refactor extracting entry-creation into a named `createEntry(text)` function — correctly reasoned that an unused `quadrant` parameter should be removed ("why did we need the quadrant parameter?" after noticing it wasn't referenced in the body), got `if`-statement syntax wrong twice (`if x then { return }`, `if (x) then { return }`) before writing valid JS on the third try
 
 ## in-memory-data
-- status: seed
+- status: practicing
 - depends-on: js-functions
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-01
+- last-reviewed: 2026-08-01
+- evidence: correctly predicted and confirmed that refreshing wipes all added tasks; initial explanation was surface-level ("they're not getting saved"/"living somewhere idk"), but after being told DOM elements live only in the browser's temporary memory until refresh, confirmed understanding in his own words ("I get it now, its the browsers memory")
+
+## variable-scope
+- status: practicing
+- depends-on: js-functions
+- introduced: 2026-08-01
+- last-reviewed: 2026-08-01
+- evidence: discovered unprompted that checking an older task's checkbox crossed out the newest task's text instead; correctly reasoned that `newText = ...` without `let` is "the same one being overwritten" each click, and correctly predicted that an old checkbox's listener would reference "the latest newText" at the moment it fires — strong self-driven diagnosis. Needed to be told the `let` fix itself and which 4 lines to apply it to (two "idk"s), but verified the fix worked correctly across multiple out-of-order checkboxes. Later the same day: while extracting `createEntry` into its own function, correctly identified that variables declared inside it (`newCheckbox`/`newText`) wouldn't be visible in the click handler ("they live in the createEntry function" → correctly predicted "it doesn't work now"), then independently fixed it by moving the `change` listener inside `createEntry` next to its declarations
 
 ## what-is-a-server
 - status: seed
@@ -249,11 +256,11 @@
 - evidence: —
 
 ## input-validation
-- status: seed
+- status: practicing
 - depends-on: full-crud
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-01
+- last-reviewed: 2026-08-01
+- evidence: proposed the guard-clause approach himself ("check if the text is either empty or spaces only, then just use return at the top of the click event listener"); wrote the `.trim() === ""` condition correctly, needed two attempts to get `if` statement syntax right (JS doesn't use `then`)
 
 ## error-handling
 - status: seed

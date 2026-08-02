@@ -61,23 +61,37 @@
     </div>
 
     <script>
-        button = document.getElementById("add-btn")
-        entryQuadrant = document.getElementById("entry-quadrant")
-        entryText = document.getElementById("entry-text")
-        button.addEventListener("click", function () {
-            newCheckbox = document.createElement("input")
-            newCheckbox.type = "checkbox"
-            newText = document.createElement("div")
-            newText.textContent = entryText.value
-            correctQuadrant = document.querySelector("." + entryQuadrant.value)
-            newEntry = document.createElement("div")
-            newEntry.className = "entry"
-            newEntry.appendChild(newText)
-            newEntry.appendChild(newCheckbox)
-            correctQuadrant.appendChild(newEntry)
-            newCheckbox.addEventListener("change", function () { newText.classList.toggle("completed")})
 
+        function createEntry(text) {
+
+            let entry = document.createElement("div")
+            let checkbox = document.createElement("input")
+            let taskText = document.createElement("div")
+
+            checkbox.type = "checkbox"
+            taskText.textContent = text.value
+            entry.className = "entry"
+            entry.appendChild(taskText)
+            entry.appendChild(checkbox)
+            checkbox.addEventListener("change", function () { taskText.classList.toggle("completed") })
+
+            return entry
+
+        }
+
+        const button = document.getElementById("add-btn")
+        const entryQuadrant = document.getElementById("entry-quadrant")
+        const entryText = document.getElementById("entry-text")
+
+        button.addEventListener("click", function () {
+
+            if (entryText.value.trim() === "") {return}
+            let entry = createEntry(entryText)
+            let correctQuadrant = document.querySelector("." + entryQuadrant.value)
+            correctQuadrant.appendChild(entry)
+            
         })
+
     </script>
 </body>
 </html>

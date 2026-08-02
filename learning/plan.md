@@ -18,7 +18,7 @@
 - [x] 1.4 Color-code each quadrant
 - [x] 1.5 Commit the finished static page
 
-### 2. Interactive but temporary  [ ] not started
+### 2. Interactive but temporary  [x] done
 **Deliverable:** Type a task/habit, add it to a quadrant, mark it complete — all in-browser, nothing saved permanently yet.
 **Concepts:** dom-manipulation, event-listeners, js-functions, in-memory-data
 **Tasks:**
@@ -26,7 +26,7 @@
 - [x] 2.2 Write a JS function that runs when "Add" is clicked and reads what you typed
 - [x] 2.3 Make that function create a new entry and insert it into the chosen quadrant on the page
 - [x] 2.4 Add a way to mark an entry complete (e.g. a checkbox that changes its style)
-- [ ] 2.5 Confirm the limits: refresh the page and see everything disappear — this is why Section 5 exists
+- [x] 2.5 Confirm the limits: refresh the page and see everything disappear — this is why Section 5 exists
 
 ### 3. A real server  [ ] not started
 **Deliverable:** The page loads from a running Flask server (localhost) instead of just opening the file directly.
