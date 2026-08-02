@@ -53,11 +53,11 @@
 - evidence: —
 
 ## local-dev-environment
-- status: seed
+- status: practicing
 - depends-on: none
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: chose a global pip install over a virtual environment after the trade-off (version conflicts across future projects) was explained — an informed, deliberate choice, not a gap; installed the wrong package by typo ("flash" instead of "flask"), self-recovered via `pip uninstall` then the correct install without prompting; verified the install worked via `python -c "import flask; print(...)"`; asked what pip is himself and, once told it's Python's package manager (parallel to npm), correctly extended the analogy to ask where git fits — and after being told git is version control (a different category), correctly recalled in his own words why git matters ("you can revert to older commits")
 
 ## flask-choice
 - status: introduced
