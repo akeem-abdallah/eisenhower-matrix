@@ -190,7 +190,7 @@
 - depends-on: rest-apis, dom-manipulation
 - introduced: 2026-08-02
 - last-reviewed: 2026-08-02
-- evidence: confirmed the "Promise/IOU" framing made sense as a reason `fetch()` can't be used synchronously; wrote the `fetch().then().then()` skeleton correctly from a description, confirmed the logged data in the console; when the `createEntry` param mismatch was surfaced (a plain string doesn't have `.value`), first proposed an unrelated fix (a separate JS list) before landing on the correct one (drop `.value` in `createEntry`, pass `entryText.value` at the call site) once walked through it; wrote the `.forEach` loop correctly from a description and confirmed real fetched tasks rendering in the correct quadrants
+- evidence: confirmed the "Promise/IOU" framing made sense as a reason `fetch()` can't be used synchronously; wrote the `fetch().then().then()` skeleton correctly from a description, confirmed the logged data in the console; when the `createEntry` param mismatch was surfaced (a plain string doesn't have `.value`), first proposed an unrelated fix (a separate JS list) before landing on the correct one (drop `.value` in `createEntry`, pass `entryText.value` at the call site) once walked through it; wrote the `.forEach` loop correctly from a description and confirmed real fetched tasks rendering in the correct quadrants. Same day: wrote a POST `fetch()` call with a `method`/`headers`/`body` options object and `JSON.stringify(...)` correctly from a description, and confirmed a task added via the button survived both a refresh and a full server restart
 
 ## json
 - status: practicing
@@ -228,11 +228,11 @@
 - evidence: correctly named all four needed columns unprompted (`id, text, quadrant, completed`) by extending the already-designed JSON task shape plus a unique identifier
 
 ## insert-select
-- status: seed
+- status: practicing
 - depends-on: sql-basics
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: correctly identified the row-to-dict conversion step needed before `jsonify` unprompted; struggled to write the actual conversion loop from just a description ("Idk how", asked "where do I write it") and needed the exact lines given — mechanical execution needed real scaffolding this time, unlike the earlier `.forEach` equivalent in JS. Correctly predicted `/api/tasks` would return `[]` on an empty table and confirmed it; identified and removed the now-dead hardcoded `tasks` list unprompted once pointed at it. Same day: wired up the `POST /api/tasks` route and matching `INSERT` statement from a described spec, then correctly predicted a task would survive both a page refresh and a full server restart, and confirmed both
 
 ## full-crud
 - status: seed
@@ -242,11 +242,11 @@
 - evidence: —
 
 ## put-delete-requests
-- status: seed
+- status: introduced
 - depends-on: rest-apis
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: implemented the `POST` half (registering a second route at the same address via `methods=["POST"]`, sending JSON via `fetch`'s options object) correctly from a description; PUT/DELETE specifically not yet touched
 
 ## task-vs-habit-modeling
 - status: seed

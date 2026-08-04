@@ -95,7 +95,12 @@
 
         button.addEventListener("click", function () {
 
-            if (entryText.value.trim() === "") {return}
+            if (entryText.value.trim() === "") { return }
+            fetch("/api/tasks", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: entryText.value, quadrant: entryQuadrant.value, completed: false })
+            })
             let entry = createEntry(entryText.value)
             let correctQuadrant = document.querySelector("." + entryQuadrant.value)
             correctQuadrant.appendChild(entry)

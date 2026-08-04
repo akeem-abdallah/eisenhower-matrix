@@ -47,14 +47,14 @@
 - [x] 4.3 In JS, `fetch()` `/api/tasks` when the page loads and use the results to build each task's entry in its quadrant (reusing `createEntry`)
 - [x] 4.4 Confirm: refresh the page — the same tasks reappear, coming from the server this time
 
-### 5. Remembering things  [ ] not started
+### 5. Remembering things  [x] done
 **Deliverable:** Add a task, restart the server, refresh the page — it's still there.
 **Concepts:** sql-basics, schema-design, insert-select
 **Tasks:**
 - [x] 5.1 Create a SQLite database file with a `tasks` table (schema: id, text, quadrant, completed)
-- [ ] 5.2 Update `GET /api/tasks` to read from the database instead of the hardcoded list
-- [ ] 5.3 Add a `POST` route that inserts a new task into the database, and wire the "Add" button to call it
-- [ ] 5.4 Confirm: add a task, restart the server, refresh the page — it's still there
+- [x] 5.2 Update `GET /api/tasks` to read from the database instead of the hardcoded list
+- [x] 5.3 Add a `POST` route that inserts a new task into the database, and wire the "Add" button to call it
+- [x] 5.4 Confirm: add a task, restart the server, refresh the page — it's still there
 
 ### 6. Full core feature  [ ] not started
 **Deliverable:** Full add/complete/delete for tasks and habits, in any quadrant, all persisted for real.
