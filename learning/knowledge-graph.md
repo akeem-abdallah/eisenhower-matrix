@@ -7,8 +7,8 @@
 - status: practicing
 - depends-on: none
 - introduced: 2026-07-30
-- last-reviewed: 2026-07-30
-- evidence: correctly predicted `git init` creates a hidden `.git` folder; ran it in the wrong directory (D:\Claude instead of the project folder), diagnosed and fixed it himself after being shown the mismatch; correctly predicted the untracked-files delete was safe; needed a re-explanation to grasp add-vs-commit ("I don't understand what all of this does") — after the save-game analogy, completed add → commit → git config → commit successfully; afterward asked "what's git for" twice (mechanics landed before purpose did) — after a "what problem does it solve" reframe, correctly explained in his own words that git lets you revert to a past checkpoint when something breaks; second add+commit cycle (index.html) run cleanly and independently, correctly explained why `add` must precede `commit` ("otherwise we would be committing an empty list")
+- last-reviewed: 2026-08-02
+- evidence: correctly predicted `git init` creates a hidden `.git` folder; ran it in the wrong directory (D:\Claude instead of the project folder), diagnosed and fixed it himself after being shown the mismatch; correctly predicted the untracked-files delete was safe; needed a re-explanation to grasp add-vs-commit ("I don't understand what all of this does") — after the save-game analogy, completed add → commit → git config → commit successfully; afterward asked "what's git for" twice (mechanics landed before purpose did) — after a "what problem does it solve" reframe, correctly explained in his own words that git lets you revert to a past checkpoint when something breaks; second add+commit cycle (index.html) run cleanly and independently, correctly explained why `add` must precede `commit` ("otherwise we would be committing an empty list"). 2026-08-02: created `.gitignore` correctly from a described spec (`.vs/` and `tasks.db`), then independently verified it worked by re-running `git status` himself before being asked to
 
 ## github-concept
 - status: introduced
@@ -214,18 +214,18 @@
 - evidence: initially said "I don't get it" to the abstract explanation of `if __name__ == "__main__":`; after a concrete worked example (a hypothetical `test_app.py` importing `app.py` and accidentally starting a real server without the guard), confirmed understanding ("yes I get it")
 
 ## sql-basics
-- status: seed
+- status: practicing
 - depends-on: database-concept, sqlite-choice
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: correctly predicted, before running, that `python app.py` would produce no visible output but create a new `tasks.db` file — confirmed correct in the browser folder; wrote/adapted the `CREATE TABLE IF NOT EXISTS` statement correctly from a described spec
 
 ## schema-design
-- status: seed
+- status: practicing
 - depends-on: sql-basics
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-02
+- last-reviewed: 2026-08-02
+- evidence: correctly named all four needed columns unprompted (`id, text, quadrant, completed`) by extending the already-designed JSON task shape plus a unique identifier
 
 ## insert-select
 - status: seed

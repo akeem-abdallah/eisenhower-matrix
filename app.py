@@ -1,5 +1,17 @@
 from flask import Flask, send_file, jsonify
+import sqlite3
 app = Flask(__name__)
+
+conn = sqlite3.connect("tasks.db")
+conn.execute("""
+    CREATE TABLE IF NOT EXISTS tasks (
+        id INTEGER PRIMARY KEY,
+        text TEXT,
+        quadrant TEXT,
+        completed BOOLEAN
+    )
+""")
+conn.close()
 
 tasks = [
     {"text": "Buy groceries", "quadrant": "q1", "completed": False},

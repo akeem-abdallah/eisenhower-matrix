@@ -50,6 +50,11 @@
 ### 5. Remembering things  [ ] not started
 **Deliverable:** Add a task, restart the server, refresh the page — it's still there.
 **Concepts:** sql-basics, schema-design, insert-select
+**Tasks:**
+- [x] 5.1 Create a SQLite database file with a `tasks` table (schema: id, text, quadrant, completed)
+- [ ] 5.2 Update `GET /api/tasks` to read from the database instead of the hardcoded list
+- [ ] 5.3 Add a `POST` route that inserts a new task into the database, and wire the "Add" button to call it
+- [ ] 5.4 Confirm: add a task, restart the server, refresh the page — it's still there
 
 ### 6. Full core feature  [ ] not started
 **Deliverable:** Full add/complete/delete for tasks and habits, in any quadrant, all persisted for real.
