@@ -65,7 +65,7 @@
 - [~] 6.3 ~~Add a task-vs-habit distinction to the schema and the "Add" form~~ — **cut 2026-08-05.** A `kind` column storing the word "task"/"habit" was built and then reverted: the label alone doesn't do the thing that makes a habit a habit (resetting daily), so it was cost without payoff. See the parking lot.
 - [x] 6.4 Confirm: full add/complete/delete works for tasks, all surviving a server restart
 
-### 7. Tests and safety rails  [ ] in progress
+### 7. Tests and safety rails  [x] done
 **Deliverable:** One command automatically checks that the core API endpoints work.
 **Concepts:** automated-testing, input-validation, error-handling
 **Note (2026-08-05):** moved to *after* section 8. Shipping is the skill that hasn't been practiced yet; tests on an app nobody can reach are the lower-value half.
@@ -74,7 +74,7 @@
 - [x] 7.2 Write a test for `GET /api/tasks` using Flask's test client
 - [x] 7.3 Write a test for `POST /api/tasks` that confirms an added task is actually retrievable after
 - [x] 7.4 Add one real error-handling case to `app.py` (a request missing a required field) and a test proving it doesn't crash the server
-- [ ] 7.5 Confirm: one command (`pytest`) runs everything and reports pass/fail
+- [x] 7.5 Confirm: one command (`pytest`) runs everything and reports pass/fail — confirmed with plain `pytest` (no `python -m`), 4 passed
 
 ### 8. Going live  [x] done
 **Deliverable:** A real public URL, usable from any device, anywhere.
