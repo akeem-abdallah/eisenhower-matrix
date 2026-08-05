@@ -56,8 +56,8 @@
 - status: practicing
 - depends-on: none
 - introduced: 2026-08-02
-- last-reviewed: 2026-08-02
-- evidence: chose a global pip install over a virtual environment after the trade-off (version conflicts across future projects) was explained — an informed, deliberate choice, not a gap; installed the wrong package by typo ("flash" instead of "flask"), self-recovered via `pip uninstall` then the correct install without prompting; verified the install worked via `python -c "import flask; print(...)"`; asked what pip is himself and, once told it's Python's package manager (parallel to npm), correctly extended the analogy to ask where git fits — and after being told git is version control (a different category), correctly recalled in his own words why git matters ("you can revert to older commits")
+- last-reviewed: 2026-08-05
+- evidence: chose a global pip install over a virtual environment after the trade-off (version conflicts across future projects) was explained — an informed, deliberate choice, not a gap; installed the wrong package by typo ("flash" instead of "flask"), self-recovered via `pip uninstall` then the correct install without prompting; verified the install worked via `python -c "import flask; print(...)"`; asked what pip is himself and, once told it's Python's package manager (parallel to npm), correctly extended the analogy to ask where git fits — and after being told git is version control (a different category), correctly recalled in his own words why git matters ("you can revert to older commits"). 2026-08-05: the cost of the global-install choice became concrete — `pip freeze` returned ~200 packages from unrelated projects, which he had predicted in advance; the decision still stands, but he has now seen its downside firsthand → [[dependency-management]]
 
 ## flask-choice
 - status: introduced
@@ -282,6 +282,13 @@
 - introduced: —
 - last-reviewed: —
 - evidence: —
+
+## dependency-management
+- status: practicing
+- depends-on: local-dev-environment
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: asked what happens when a fresh machine with no Flask hits `from flask import Flask`, answered correctly and immediately ("it would error because flask isnt installed there"); correctly predicted `pip freeze` would list far more than Flask, reasoning from his own earlier decision to install globally rather than into a virtual environment — then saw the ~200-line reality. Asked how many of Flask's eight `pip freeze` lines belong in `requirements.txt`, answered "just flask because pip installs the rest" unprompted — the direct-vs-transitive distinction, with the correct mechanism. Authored `requirements.txt` himself; correctly predicted `pip install -r requirements.txt` would report the requirement already satisfied. First contact, so capped at practicing despite a clean run
 
 ## environment-variables
 - status: seed

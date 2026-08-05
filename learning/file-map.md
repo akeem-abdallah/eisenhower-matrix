@@ -13,4 +13,5 @@
 - .gitignore — known (2026-08-02) — tells git to never track `.vs/` and `tasks.db` (editor cache and local database state, not source code) → [[git-source-control]]
 - index.html — known (2026-07-30) — the app's page: 4-quadrant grid with colors, entry controls, and a click handler that creates a new entry and inserts it into the correct quadrant → [[html-structure]], [[css-layout]], [[css-class-selectors]], [[css-color-coding]], [[event-listeners]], [[js-functions]], [[dom-manipulation]]
 - app.py — known (2026-08-02) — the Flask server: serves the page at `/`, tasks as JSON at `/api/tasks`, and sets up the SQLite database on startup → [[what-is-a-server]], [[flask-routes]], [[flask-choice]], [[sql-basics]]
+- requirements.txt — known (2026-08-05) — the note you leave for a machine that has never seen your project: the packages it must install before `app.py` will run. Lists only direct dependencies (Flask); pip resolves the rest → [[dependency-management]]
 - tasks.db — generated (2026-08-02) — the actual SQLite database file, created automatically by `app.py`'s `CREATE TABLE IF NOT EXISTS` on startup; never edit directly → [[sql-basics]], [[schema-design]]
