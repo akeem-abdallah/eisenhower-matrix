@@ -3,6 +3,13 @@
 <!-- statuses: seed → introduced → practicing → understood -->
 <!-- seed: not yet taught | introduced: explained once | practicing: used it with help | understood: explained in own words + passed a quiz -->
 
+## css-visual-design-pass
+- status: practicing
+- depends-on: css-layout, css-class-selectors, css-color-coding
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: unplanned post-MVP session — asked for a from-scratch redesign, explicitly requested "no skeleton, teach it to me" and wrote every rule himself from a blank `<style>` block. Real bugs self-caused and self-diagnosed along the way: wrote `margin: 10;` with no unit (invalid CSS, silently ignored — correctly identified once shown); tried `.quadrant .q4` as a compound selector, correctly reasoned through why it wouldn't match once shown that `quadrant`/`q4` are two classes on the *same* element, not parent/child. Independently picked his own background color, and when I flagged a real elevation-order bug in his choice, decided to keep full color control himself for the rest of the session. Two genuine misconceptions surfaced and were corrected: thought a viewport meta tag alone makes pixel-based sizing "responsive" (it doesn't — it just stops mobile zoom, layout still needs media queries); and after seeing a checkbox and text row measured as pixel-identical in DevTools twice, still perceived a vertical offset — accepted it as an inherent font-glyph-rendering effect once shown the actual numbers, rather than continuing to chase it. Concepts newly touched at a "used with guidance" level: `linear-gradient`, `accent-color`, `appearance: none` + `:checked`/`:hover`/`:active` pseudo-classes, attribute selectors (`input[type="checkbox"]`), `color-scheme`, media queries (`@media max-width`), `flex: 1` reused in a new context, `overflow-y: auto`, `transition` (including self-caught-by-tutor bug: placing `transition` inside a `:hover` block instead of the base rule, so it only animates one direction). Session ended mid-fix on that last bug, deferred by the learner
+
 ## git-source-control
 - status: practicing
 - depends-on: none

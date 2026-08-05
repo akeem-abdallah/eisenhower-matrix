@@ -2,42 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Akeem's app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eisenhower Matrix</title>
     <style>
+
+        body {
+            background-color: #212121;
+            color: white;
+            font-family: "Segoe UI", -apple-system, sans-serif;
+            padding: 24px;
+            color-scheme: dark;
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: 800;
+            margin: 0 0 20px 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .controls input,
+        .controls select {
+            background-color: #1c1c1e;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .controls select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 14px;
+            padding-right: 30px;
+        }
+
+        .controls select option {
+            background-color: #1c1c1e;
+            color: white;
+        }
+
+        .controls button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #5e5ce6;
+            color: white;
+            box-shadow: 0 1px 3px rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .controls button:hover {
+            background-color: #4a48b8;
+            transition: background-color 0.15s ease;
+        }
+
+        .controls button:active {
+            background-color: #33318e;
+        }
 
         .matrix {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 16px;
         }
 
         .quadrant {
-            border: 2px solid #333;
-            padding: 20px;
+            background-color: #282828;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(255, 255, 255, 0.06);
+            height: 300px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .q1 {
-            background-color: pink;
+        .quadrant-header {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
-        .q2 {
-            background-color: orange;
-        }
-
-        .q3 {
-            background-color: lightblue;
-        }
-
-        .q4 {
-            background-color: lightgreen;
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            overflow-y: auto;
         }
 
         .entry {
-            display: flex
+            background-color: #2c2c2e;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+        }
+
+        .entry:hover {
+            background-color: #3a3a3c;
+            transition: background-color 0.15s ease;
+        }
+
+        .entry input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0a84ff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .q1 .entry input[type="checkbox"] {
+            border-color: #ff6482;
+        }
+
+        .q1 .entry input[type="checkbox"]:checked {
+            background-color: #ff6482;
+            border-color: #ff6482;
+        }
+
+        .q2 .entry input[type="checkbox"] {
+            border-color: #e8b64c;
+        }
+
+        .q2 .entry input[type="checkbox"]:checked {
+            background-color: #e8b64c;
+            border-color: #e8b64c;
+        }
+
+        .q3 .entry input[type="checkbox"] {
+            border-color: #0a84ff;
+        }
+
+        .q3 .entry input[type="checkbox"]:checked {
+            background-color: #0a84ff;
+            border-color: #0a84ff;
+        }
+
+        .q4 .entry input[type="checkbox"] {
+            border-color: #34c759;
+        }
+
+        .q4 .entry input[type="checkbox"]:checked {
+            background-color: #34c759;
+            border-color: #34c759;
+        }
+
+        .entry-text {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: #f5f5f7;
+            position: relative;
+            top: -1px;
         }
 
         .completed {
-            text-decoration: line-through
+            text-decoration: line-through;
+            color: #8e8e93;
+        }
+
+        .delete-btn {
+            border: none;
+            background: none;
+            color: #ff453a;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+        .q1 .quadrant-header {
+            color: #ff6482;
+        }
+
+        .q2 .quadrant-header {
+            color: #e8b64c;
+        }
+
+        .q3 .quadrant-header {
+            color: #0a84ff;
+        }
+
+        .q4 .quadrant-header {
+            color: #34c759;
+        }
+
+        @media (max-width: 600px) {
+            .matrix {
+                grid-template-columns: 1fr;
+            }
         }
 
     </style>
@@ -47,18 +215,30 @@
     <div class="controls">
         <input type="text" id="entry-text" placeholder="Add a task or habit">
         <select id="entry-quadrant">
-            <option value="q1">Urgent &amp; Important</option>
-            <option value="q2">Not Urgent &amp; Important</option>
-            <option value="q3">Urgent &amp; Not Important</option>
-            <option value="q4">Not Urgent &amp; Not Important</option>
+            <option value="q1">Do</option>
+            <option value="q2">Decide</option>
+            <option value="q3">Delegate</option>
+            <option value="q4">Delete</option>
         </select>
         <button id="add-btn">Add</button>
     </div>
     <div class="matrix">
-        <div class="quadrant q1">Urgent & Important</div>
-        <div class="quadrant q2">Not Urgent & Important</div>
-        <div class="quadrant q3">Urgent & Not Important</div>
-        <div class="quadrant q4">Not Urgent & Not Important</div>
+        <div class="quadrant q1">
+            <div class="quadrant-header">Do &mdash; Urgent &amp; Important</div>
+            <div class="task-list"></div>
+        </div>
+        <div class="quadrant q2">
+            <div class="quadrant-header">Decide &mdash; Not Urgent &amp; Important</div>
+            <div class="task-list"></div>
+        </div>
+        <div class="quadrant q3">
+            <div class="quadrant-header">Delegate &mdash; Urgent &amp; Not Important</div>
+            <div class="task-list"></div>
+        </div>
+        <div class="quadrant q4">
+            <div class="quadrant-header">Delete &mdash; Not Urgent &amp; Not Important</div>
+            <div class="task-list"></div>
+        </div>
     </div>
 
     <script>
@@ -68,7 +248,7 @@
             .then(data => {
                 data.forEach(function (task) {
                     let entry = createEntry(task)
-                    let correctQuadrant = document.querySelector("." + task.quadrant)
+                    let correctQuadrant = document.querySelector("." + task.quadrant + " .task-list")
                     correctQuadrant.appendChild(entry)
                 })
            })
@@ -83,10 +263,11 @@
             checkbox.type = "checkbox"
             checkbox.dataset.id = task.id
             checkbox.checked = task.completed
+            taskText.className = "entry-text"
             taskText.textContent = task.text
             if (task.completed) { taskText.classList.add("completed") }
-            entry.appendChild(taskText)
             entry.appendChild(checkbox)
+            entry.appendChild(taskText)
             checkbox.addEventListener("change", function () {
                 taskText.classList.toggle("completed")
 
@@ -98,7 +279,8 @@
             })
 
             let deleteButton = document.createElement("button")
-            deleteButton.textContent = "Delete"
+            deleteButton.className = "delete-btn"
+            deleteButton.textContent = "×"
             entry.appendChild(deleteButton)
             deleteButton.addEventListener("click", function () {
                 fetch("/api/tasks/" + checkbox.dataset.id, { method: "DELETE" })
@@ -127,8 +309,9 @@
                 .then(result => {
                     taskData.id = result.id
                     let entry = createEntry(taskData)
-                    let correctQuadrant = document.querySelector("." + entryQuadrant.value)
+                    let correctQuadrant = document.querySelector("." + entryQuadrant.value + " .task-list")
                     correctQuadrant.appendChild(entry)
+                    entryText.value = ""
                 })
 
         })
