@@ -70,15 +70,15 @@
 **Concepts:** automated-testing, input-validation, error-handling
 **Note (2026-08-05):** moved to *after* section 8. Shipping is the skill that hasn't been practiced yet; tests on an app nobody can reach are the lower-value half.
 
-### 8. Going live  [ ] in progress
+### 8. Going live  [x] done
 **Deliverable:** A real public URL, usable from any device, anywhere.
 **Concepts:** environment-variables, git-based-deploy, github-concept, production-vs-dev-server
 **Tasks:**
 - [x] 8.1 Commit section 6's work, create a GitHub repo, and push the project to it — live at github.com/blech0/eisenhower-matrix
 - [x] 8.2 Add `requirements.txt` so a fresh machine knows what to install
 - [x] 8.3 Add a production web server (gunicorn) and understand why Flask's dev server isn't it
-- [ ] 8.4 Deploy on Render, using an environment variable for the port
-- [ ] 8.5 Open the live URL on your phone — and understand what the free tier does to your SQLite file
+- [x] 8.4 Deploy on Render, using an environment variable for the port — live, verified: added a task through the deployed URL and it survived a refresh
+- [x] 8.5 Open the live URL on your phone — and understand what the free tier does to your SQLite file — confirmed firsthand: a manually-triggered restart wiped an added task
 
 ### 9. Wrap the MVP  [ ] not started
 **Deliverable:** MVP checklist fully checked off; can explain the whole app end to end.

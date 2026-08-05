@@ -46,11 +46,11 @@
 - evidence: —
 
 ## deployment-concept
-- status: seed
+- status: practicing
 - depends-on: backend-concept
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: recalled unprompted, days after the original heads-up in the same session, that Render's free tier "wipes the tasks eventually when I restart it"; correctly predicted a manual restart would wipe an added task, and confirmed it firsthand rather than taking it on faith. Judged the trade-off himself when asked whether it mattered right now — "just a thing worth knowing for now," correctly weighing that a to-do demo app has no real data at stake yet
 
 ## local-dev-environment
 - status: practicing
@@ -298,18 +298,25 @@
 - evidence: had noticed Flask's dev-server warning all week but read it as an error rather than a purpose distinction ("I don't like seeing red in there") — corrected: dev server is single-request, built for convenience during coding, not load. First guess at the concrete failure mode ("it would crash") was wrong but reasonable; corrected to "queues and waits" rather than crashing. Transferred the install→pin-in-requirements.txt pattern from Flask to gunicorn unprompted, predicting the install command correctly before running it. Told plainly that gunicorn cannot run on Windows at all and verification would have to wait for Render — not yet demonstrated, since nothing has deployed yet
 
 ## environment-variables
-- status: seed
+- status: practicing
 - depends-on: deployment-concept
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: after being told Render assigns the network port dynamically via a `PORT` variable, correctly predicted the failure mode of deploying without `--bind 0.0.0.0:$PORT` ("it starts fine but nobody can reach it") — close enough to the real mechanism (gunicorn binds to its own default port; Render's health check just can't find it) that the correction was a refinement, not a reversal. Added `--bind 0.0.0.0:$PORT` to the Start Command himself and it deployed successfully
+
+## github-based-deploy-flow
+- status: practicing
+- depends-on: git-based-deploy, github-concept
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: connected the GitHub repo to a new Render Web Service, correctly reasoned (unprompted, when asked to choose between Static Site and Web Service) that a static site can't run Python and his app needs a live process, choosing Web Service correctly. Encountered a real mismatch — opened a URL that turned out to belong to someone else's identically-named Eisenhower Matrix project — and correctly diagnosed it himself by comparing the address bar against the dashboard's actual URL once asked to check, rather than assuming the app was broken. Verified the deployed app for real: added a task through the live URL, refreshed, confirmed persistence on Render's Linux machine running gunicorn
 
 ## git-based-deploy
-- status: seed
+- status: practicing
 - depends-on: git-source-control, deployment-concept, render-choice
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: connected GitHub repo to Render, correctly chose Web Service over Static Site reasoning that Python needs a live process; deployed successfully after fixing the Start Command to bind `$PORT`; verified the live app for real (added a task, refreshed, confirmed persistence) — see [[github-based-deploy-flow]] for the full blow-by-blow
 
 ## mvp-review
 - status: seed
