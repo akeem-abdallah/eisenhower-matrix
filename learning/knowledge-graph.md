@@ -326,11 +326,11 @@
 - evidence: connected GitHub repo to Render, correctly chose Web Service over Static Site reasoning that Python needs a live process; deployed successfully after fixing the Start Command to bind `$PORT`; verified the live app for real (added a task, refreshed, confirmed persistence) — see [[github-based-deploy-flow]] for the full blow-by-blow
 
 ## mvp-review
-- status: seed
+- status: practicing
 - depends-on: full-crud
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: self-assessed all four original MVP checklist items as working (add to any quadrant, mark complete, 4-quadrant color coding, no login) — matches what was independently verified across sections 6 and 8. Correctly recalled the habit-distinction cut unprompted; needed one nudge to name delete as the addition beyond scope, then connected it to the term "CRUD" himself, recognizing the app does more than the MVP strictly required
 
 ## readme-portfolio-framing
 - status: seed
