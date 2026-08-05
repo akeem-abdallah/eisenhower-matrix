@@ -263,11 +263,18 @@
 - evidence: raised doubt about the project unprompted ("I'm skeptical about all of this, I don't know why", then "maybe I should make another project") — the doubt was well-aimed: it landed exactly on a task that would have stored the *label* "habit" without any of the behavior he'd just described. After the trade-off was named (starting fresh = redoing HTML/CSS he already knows, and still never having deployed anything), chose to cut the feature and keep the project rather than abandon it. First contact with scope-cutting as a deliberate move; he made the call but did not yet articulate the reasoning back in his own words
 
 ## automated-testing
-- status: seed
+- status: practicing
 - depends-on: full-crud
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: installed pytest, wrote a trivial `test_sanity` function from a described spec, correctly predicted `pytest` would print "1 passed" both times (once before hitting the PATH issue, once after the `python -m pytest` workaround) — the mechanism prediction was right even though the first command itself failed for an unrelated reason
+
+## path-environment-variable
+- status: introduced
+- depends-on: local-dev-environment
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: hit `pytest : term not recognized` after install; didn't recall the earlier gunicorn PATH warning cold when asked ("I don't recall"), but understood the explanation once given (PATH = folders the terminal searches for bare commands) and successfully used the `python -m pytest` workaround unprompted-thereafter, confirming "1 passed in 0.03s" himself in his own terminal
 
 ## input-validation
 - status: practicing
