@@ -4,6 +4,8 @@ A CRUD web app for organising tasks by urgency and importance, using the Eisenho
 
 **[Live demo](https://eisenhower-matrix-w38v.onrender.com)**
 
+![Screenshot](screenshot.png)
+
 ## Features
 
 - Add a task to any of the four quadrants
