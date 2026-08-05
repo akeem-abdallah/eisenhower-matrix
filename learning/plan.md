@@ -56,18 +56,33 @@
 - [x] 5.3 Add a `POST` route that inserts a new task into the database, and wire the "Add" button to call it
 - [x] 5.4 Confirm: add a task, restart the server, refresh the page — it's still there
 
-### 6. Full core feature  [ ] not started
-**Deliverable:** Full add/complete/delete for tasks and habits, in any quadrant, all persisted for real.
-**Concepts:** full-crud, put-delete-requests, task-vs-habit-modeling
+### 6. Full core feature  [x] done (scope cut)
+**Deliverable:** Full add/complete/delete for tasks, in any quadrant, all persisted for real.
+**Concepts:** full-crud, put-delete-requests, ~~task-vs-habit-modeling~~ (cut)
+**Tasks:**
+- [x] 6.1 Persist "mark complete": include task `id` from the database, add a `PUT` route, wire the checkbox to call it
+- [x] 6.2 Persist "delete": add a delete control per entry, add a `DELETE` route, wire it up
+- [~] 6.3 ~~Add a task-vs-habit distinction to the schema and the "Add" form~~ — **cut 2026-08-05.** A `kind` column storing the word "task"/"habit" was built and then reverted: the label alone doesn't do the thing that makes a habit a habit (resetting daily), so it was cost without payoff. See the parking lot.
+- [x] 6.4 Confirm: full add/complete/delete works for tasks, all surviving a server restart
 
-### 7. Tests and safety rails  [ ] not started
+### 7. Tests and safety rails  [ ] deferred until after deploy
 **Deliverable:** One command automatically checks that the core API endpoints work.
 **Concepts:** automated-testing, input-validation, error-handling
+**Note (2026-08-05):** moved to *after* section 8. Shipping is the skill that hasn't been practiced yet; tests on an app nobody can reach are the lower-value half.
 
-### 8. Going live  [ ] not started
+### 8. Going live  [ ] in progress
 **Deliverable:** A real public URL, usable from any device, anywhere.
-**Concepts:** environment-variables, git-based-deploy
+**Concepts:** environment-variables, git-based-deploy, github-concept, production-vs-dev-server
+**Tasks:**
+- [ ] 8.1 Commit section 6's work, create a GitHub repo, and push the project to it
+- [ ] 8.2 Add `requirements.txt` so a fresh machine knows what to install
+- [ ] 8.3 Add a production web server (gunicorn) and understand why Flask's dev server isn't it
+- [ ] 8.4 Deploy on Render, using an environment variable for the port
+- [ ] 8.5 Open the live URL on your phone — and understand what the free tier does to your SQLite file
 
 ### 9. Wrap the MVP  [ ] not started
 **Deliverable:** MVP checklist fully checked off; can explain the whole app end to end.
 **Concepts:** mvp-review, readme-portfolio-framing, demo-practice
+
+## Parking lot
+- **Habits that actually repeat daily** — the real feature, in Akeem's own words: "a habit repeats every day; a task disappears once you complete it." Needs a `kind` column *plus* a reset rule (when does a habit un-complete itself? on a date change? who runs that — the server on startup, or a check on page load?) and a notion of "today" the app doesn't have yet. Genuinely a section, not a task. Revisit after deploy, if he still wants this app.

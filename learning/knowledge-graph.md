@@ -162,7 +162,7 @@
 - depends-on: what-is-a-server, flask-choice
 - introduced: 2026-08-02
 - last-reviewed: 2026-08-02
-- evidence: didn't yet have an intuition for what a "route" is when asked cold ("Idk"); wrote the `@app.route("/")` decorator and handler function correctly from a described spec, no errors — mechanical execution is solid, conceptual grasp not yet self-demonstrated. Same day, after seeing `/` work: correctly predicted that requesting an undefined route (`/tasks`) would error ("it would do nothing or an error"), then confirmed the actual 404 in the browser — real conceptual grasp shown, but still same-day so capped at practicing. Same day: correctly predicted that swapping the route's return value to `send_file("index.html")` would serve the actual matrix page, then confirmed it in the browser. Same day: after two rounds of clarification, correctly restated a route as "making a line towards a specific page," and correctly described the `app` object as "an object with properties" (built-in abilities like `.route()`/`.run()`) rather than "a bunch of functions" once corrected — needed real back-and-forth to get there, not first-pass
+- evidence: didn't yet have an intuition for what a "route" is when asked cold ("Idk"); wrote the `@app.route("/")` decorator and handler function correctly from a described spec, no errors — mechanical execution is solid, conceptual grasp not yet self-demonstrated. Same day, after seeing `/` work: correctly predicted that requesting an undefined route (`/tasks`) would error ("it would do nothing or an error"), then confirmed the actual 404 in the browser — real conceptual grasp shown, but still same-day so capped at practicing. Same day: correctly predicted that swapping the route's return value to `send_file("index.html")` would serve the actual matrix page, then confirmed it in the browser. Same day: after two rounds of clarification, correctly restated a route as "making a line towards a specific page," and correctly described the `app` object as "an object with properties" (built-in abilities like `.route()`/`.run()`) rather than "a bunch of functions" once corrected — needed real back-and-forth to get there, not first-pass. 2026-08-02 (later): implemented a dynamic route (`<int:task_id>`) correctly from a description
 
 ## http-basics
 - status: practicing
@@ -190,7 +190,7 @@
 - depends-on: rest-apis, dom-manipulation
 - introduced: 2026-08-02
 - last-reviewed: 2026-08-02
-- evidence: confirmed the "Promise/IOU" framing made sense as a reason `fetch()` can't be used synchronously; wrote the `fetch().then().then()` skeleton correctly from a description, confirmed the logged data in the console; when the `createEntry` param mismatch was surfaced (a plain string doesn't have `.value`), first proposed an unrelated fix (a separate JS list) before landing on the correct one (drop `.value` in `createEntry`, pass `entryText.value` at the call site) once walked through it; wrote the `.forEach` loop correctly from a description and confirmed real fetched tasks rendering in the correct quadrants. Same day: wrote a POST `fetch()` call with a `method`/`headers`/`body` options object and `JSON.stringify(...)` correctly from a description, and confirmed a task added via the button survived both a refresh and a full server restart
+- evidence: confirmed the "Promise/IOU" framing made sense as a reason `fetch()` can't be used synchronously; wrote the `fetch().then().then()` skeleton correctly from a description, confirmed the logged data in the console; when the `createEntry` param mismatch was surfaced (a plain string doesn't have `.value`), first proposed an unrelated fix (a separate JS list) before landing on the correct one (drop `.value` in `createEntry`, pass `entryText.value` at the call site) once walked through it; wrote the `.forEach` loop correctly from a description and confirmed real fetched tasks rendering in the correct quadrants. Same day: wrote a POST `fetch()` call with a `method`/`headers`/`body` options object and `JSON.stringify(...)` correctly from a description, and confirmed a task added via the button survived both a refresh and a full server restart. Same day (later, unplanned Q&A): initially unclear on why `.then()` appears twice and what `response.json()` actually does ("I just don't get whats going on"); after a two-envelope walkthrough (response arrives → its body gets parsed, each step its own Promise), correctly concluded the `data`/`result` variable names are arbitrary labels with no effect on what value flows through the chain ("its always the same thing but we pick the name depending on the context") — real conceptual gap closed, not just pattern-matching syntax anymore
 
 ## json
 - status: practicing
@@ -217,8 +217,8 @@
 - status: practicing
 - depends-on: database-concept, sqlite-choice
 - introduced: 2026-08-02
-- last-reviewed: 2026-08-02
-- evidence: correctly predicted, before running, that `python app.py` would produce no visible output but create a new `tasks.db` file — confirmed correct in the browser folder; wrote/adapted the `CREATE TABLE IF NOT EXISTS` statement correctly from a described spec
+- last-reviewed: 2026-08-05
+- evidence: correctly predicted, before running, that `python app.py` would produce no visible output but create a new `tasks.db` file — confirmed correct in the browser folder; wrote/adapted the `CREATE TABLE IF NOT EXISTS` statement correctly from a described spec. 2026-08-05: asked cold whether adding a column to the `CREATE TABLE IF NOT EXISTS` statement would alter the already-existing table, answered correctly and immediately with the right reason ("no it won't get added because the table exists") — first-try, unprompted, no hint given; then correctly predicted that deleting `tasks.db` and re-running `python app.py` would recreate it, and confirmed it
 
 ## schema-design
 - status: practicing
@@ -242,18 +242,25 @@
 - evidence: —
 
 ## put-delete-requests
-- status: introduced
+- status: practicing
 - depends-on: rest-apis
 - introduced: 2026-08-02
 - last-reviewed: 2026-08-02
-- evidence: implemented the `POST` half (registering a second route at the same address via `methods=["POST"]`, sending JSON via `fetch`'s options object) correctly from a description; PUT/DELETE specifically not yet touched
+- evidence: implemented the `POST` half (registering a second route at the same address via `methods=["POST"]`, sending JSON via `fetch`'s options object) correctly from a description. Same day: correctly caught, unprompted, that two call sites (`createEntry(task.text)` and later the "Add" handler) needed updating after `createEntry`'s signature changed to take a full task object, correctly predicting the resulting "undefined" bug before running it; implemented the full `PUT` round trip (dynamic Flask route, `cursor.lastrowid`, waiting for the POST response before building the entry, `checkbox.dataset.id`) from descriptions and correctly predicted/confirmed a checked task survives a refresh. Same day: attempted the `DELETE` route by copying the PUT pattern but initially read an unnecessary JSON body instead of using the already-available `task_id` — self-corrected once asked whether a body was actually needed; hit a real Python gotcha (`(task_id)` vs `(task_id,)` — parens vs. a one-item tuple) and needed the fix given directly; wired the delete button and `entry.remove()` correctly from a description, confirmed deleted tasks stay gone after refresh
 
 ## task-vs-habit-modeling
-- status: seed
+- status: introduced
 - depends-on: schema-design
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: asked cold for one concrete behavioral difference between a task and a habit, answered in his own words unprompted — "a habit repeats every day, a task means when you complete it, it disappears the next day" — and brought his own reference point (the iOS app Eva), noting Eva doesn't let you put habits in an Eisenhower matrix. The modeling itself was **not built**: a `kind` column was added and then reverted the same session when the feature was cut from MVP scope. Concept understood at the product level, never implemented — see the plan's parking lot
+
+## mvp-scope-cutting
+- status: introduced
+- depends-on: none
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: raised doubt about the project unprompted ("I'm skeptical about all of this, I don't know why", then "maybe I should make another project") — the doubt was well-aimed: it landed exactly on a task that would have stored the *label* "habit" without any of the behavior he'd just described. After the trade-off was named (starting fresh = redoing HTML/CSS he already knows, and still never having deployed anything), chose to cut the feature and keep the project rather than abandon it. First contact with scope-cutting as a deliberate move; he made the call but did not yet articulate the reasoning back in his own words
 
 ## automated-testing
 - status: seed

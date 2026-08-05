@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Akeem's app</title>
     <style>
+
         .matrix {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -62,17 +63,17 @@
 
     <script>
 
-        fetch("/api/tasks")
+        fetch("/api/tasks", {method: "GET"})
             .then(response => response.json())
             .then(data => {
                 data.forEach(function (task) {
-                    let entry = createEntry(task.text)
+                    let entry = createEntry(task)
                     let correctQuadrant = document.querySelector("." + task.quadrant)
                     correctQuadrant.appendChild(entry)
                 })
            })
 
-        function createEntry(text) {
+        function createEntry(task) {
 
             let entry = document.createElement("div")
             let checkbox = document.createElement("input")
@@ -80,10 +81,29 @@
 
             entry.className = "entry"
             checkbox.type = "checkbox"
-            taskText.textContent = text
+            checkbox.dataset.id = task.id
+            checkbox.checked = task.completed
+            taskText.textContent = task.text
+            if (task.completed) { taskText.classList.add("completed") }
             entry.appendChild(taskText)
             entry.appendChild(checkbox)
-            checkbox.addEventListener("change", function () { taskText.classList.toggle("completed") })
+            checkbox.addEventListener("change", function () {
+                taskText.classList.toggle("completed")
+
+                fetch("/api/tasks/" + checkbox.dataset.id, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ completed: checkbox.checked })
+                })
+            })
+
+            let deleteButton = document.createElement("button")
+            deleteButton.textContent = "Delete"
+            entry.appendChild(deleteButton)
+            deleteButton.addEventListener("click", function () {
+                fetch("/api/tasks/" + checkbox.dataset.id, { method: "DELETE" })
+                entry.remove()
+            })
 
             return entry
 
@@ -96,15 +116,21 @@
         button.addEventListener("click", function () {
 
             if (entryText.value.trim() === "") { return }
+            let taskData = { text: entryText.value, quadrant: entryQuadrant.value, completed: false }
+
             fetch("/api/tasks", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ text: entryText.value, quadrant: entryQuadrant.value, completed: false })
+                body: JSON.stringify(taskData)
             })
-            let entry = createEntry(entryText.value)
-            let correctQuadrant = document.querySelector("." + entryQuadrant.value)
-            correctQuadrant.appendChild(entry)
-            
+                .then(response => response.json())
+                .then(result => {
+                    taskData.id = result.id
+                    let entry = createEntry(taskData)
+                    let correctQuadrant = document.querySelector("." + entryQuadrant.value)
+                    correctQuadrant.appendChild(entry)
+                })
+
         })
 
     </script>
