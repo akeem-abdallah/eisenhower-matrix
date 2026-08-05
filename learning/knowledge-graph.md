@@ -333,11 +333,11 @@
 - evidence: self-assessed all four original MVP checklist items as working (add to any quadrant, mark complete, 4-quadrant color coding, no login) — matches what was independently verified across sections 6 and 8. Correctly recalled the habit-distinction cut unprompted; needed one nudge to name delete as the addition beyond scope, then connected it to the term "CRUD" himself, recognizing the app does more than the MVP strictly required
 
 ## readme-portfolio-framing
-- status: seed
+- status: practicing
 - depends-on: mvp-review
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: wrote the description, tech stack, and features sections of README.md cleanly and accurately on the first pass, in his own words, no help needed. "How to run" was a real struggle: initially wrote "install repositories" instead of "dependencies" (needed the term given directly after a hint didn't land); missed the `git clone` step entirely at first; then, once prompted for the clone URL, pasted the Render (live-app) URL, then localhost `127.0.0.1:5000`, before landing on the actual GitHub URL — a genuine three-way mix-up between "where the code lives," "where the deployed app runs," and "where it runs on my own machine," not a typo. Also asked directly to have the section written for him and accepted "no" without pushing further. Final file is complete and correct; the confusion along the way is the more honest signal of where understanding is thin
 
 ## demo-practice
 - status: seed

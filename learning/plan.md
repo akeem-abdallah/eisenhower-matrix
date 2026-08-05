@@ -91,7 +91,7 @@
 **Concepts:** mvp-review, readme-portfolio-framing, demo-practice
 **Tasks:**
 - [x] 9.1 Walk the original MVP checklist item by item against what's actually built; note anything cut or added beyond scope — all 4 required items confirmed; habits cut, delete added beyond scope
-- [ ] 9.2 Write a README for the repo: what it is, tech stack, the live URL, how to run it locally
+- [x] 9.2 Write a README for the repo: what it is, tech stack, the live URL, how to run it locally
 - [ ] 9.3 Full unprompted demo walkthrough — explain the whole app end to end, as if presenting it
 
 ## Parking lot
