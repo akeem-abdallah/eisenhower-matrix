@@ -86,13 +86,13 @@
 - [x] 8.4 Deploy on Render, using an environment variable for the port — live, verified: added a task through the deployed URL and it survived a refresh
 - [x] 8.5 Open the live URL on your phone — and understand what the free tier does to your SQLite file — confirmed firsthand: a manually-triggered restart wiped an added task
 
-### 9. Wrap the MVP  [ ] in progress
+### 9. Wrap the MVP  [x] done
 **Deliverable:** MVP checklist fully checked off; can explain the whole app end to end.
 **Concepts:** mvp-review, readme-portfolio-framing, demo-practice
 **Tasks:**
 - [x] 9.1 Walk the original MVP checklist item by item against what's actually built; note anything cut or added beyond scope — all 4 required items confirmed; habits cut, delete added beyond scope
 - [x] 9.2 Write a README for the repo: what it is, tech stack, the live URL, how to run it locally
-- [ ] 9.3 Full unprompted demo walkthrough — explain the whole app end to end, as if presenting it
+- [x] 9.3 Full unprompted demo walkthrough — explain the whole app end to end, as if presenting it — strong overall; one gap (gunicorn) surfaced and closed on the spot
 
 ## Parking lot
 - **Habits that actually repeat daily** — the real feature, in Akeem's own words: "a habit repeats every day; a task disappears once you complete it." Needs a `kind` column *plus* a reset rule (when does a habit un-complete itself? on a date change? who runs that — the server on startup, or a check on page load?) and a notion of "today" the app doesn't have yet. Genuinely a section, not a task. Revisit after deploy, if he still wants this app.

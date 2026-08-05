@@ -340,8 +340,8 @@
 - evidence: wrote the description, tech stack, and features sections of README.md cleanly and accurately on the first pass, in his own words, no help needed. "How to run" was a real struggle: initially wrote "install repositories" instead of "dependencies" (needed the term given directly after a hint didn't land); missed the `git clone` step entirely at first; then, once prompted for the clone URL, pasted the Render (live-app) URL, then localhost `127.0.0.1:5000`, before landing on the actual GitHub URL — a genuine three-way mix-up between "where the code lives," "where the deployed app runs," and "where it runs on my own machine," not a typo. Also asked directly to have the section written for him and accepted "no" without pushing further. Final file is complete and correct; the confusion along the way is the more honest signal of where understanding is thin
 
 ## demo-practice
-- status: seed
+- status: practicing
 - depends-on: readme-portfolio-framing
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: gave a full, unprompted, interviewer-style walkthrough of the entire app — CRUD flow, why task_id lives in the URL rather than the body (self-justified design reasoning, not rote recall), the persistence mechanism through GET + `createEntry`, and testing via a fake client with `assert`. One real gap surfaced and self-flagged honestly: couldn't recall what actually runs the app in production (gunicorn) until refreshed, then correctly restated the one-request-at-a-time vs. many-at-once distinction in his own words. Correctly self-assessed his testing explanation as weak when it was actually accurate — a calibration miss worth noting (underconfidence, not overconfidence, on that one point)
