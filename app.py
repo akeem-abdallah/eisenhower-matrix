@@ -30,6 +30,8 @@ def get_tasks():
 @app.route("/api/tasks", methods=["POST"])
 def add_task():
     data = request.get_json()
+    if "text" not in data or "quadrant" not in data:
+        return jsonify({"error": "text and quadrant are required"}), 400
     conn = sqlite3.connect("tasks.db")
     cursor = conn.execute("INSERT INTO tasks (text, quadrant, completed) VALUES (?, ?, ?)", (data["text"], data["quadrant"], data["completed"]))
     conn.commit()

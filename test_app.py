@@ -17,3 +17,8 @@ def test_post_task():
     tasks = client.get("/api/tasks").json
     assert any(t["id"] == task_id for t in tasks)
     client.delete(f"/api/tasks/{task_id}")
+
+def test_post_task_missing_field():
+    client = app.test_client()
+    response = client.post("/api/tasks", json={"quadrant": "q1"})
+    assert response.status_code == 400

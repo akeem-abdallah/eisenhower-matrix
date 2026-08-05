@@ -8,7 +8,7 @@
 - depends-on: none
 - introduced: 2026-07-30
 - last-reviewed: 2026-08-02
-- evidence: correctly predicted `git init` creates a hidden `.git` folder; ran it in the wrong directory (D:\Claude instead of the project folder), diagnosed and fixed it himself after being shown the mismatch; correctly predicted the untracked-files delete was safe; needed a re-explanation to grasp add-vs-commit ("I don't understand what all of this does") — after the save-game analogy, completed add → commit → git config → commit successfully; afterward asked "what's git for" twice (mechanics landed before purpose did) — after a "what problem does it solve" reframe, correctly explained in his own words that git lets you revert to a past checkpoint when something breaks; second add+commit cycle (index.html) run cleanly and independently, correctly explained why `add` must precede `commit` ("otherwise we would be committing an empty list"). 2026-08-02: created `.gitignore` correctly from a described spec (`.vs/` and `tasks.db`), then independently verified it worked by re-running `git status` himself before being asked to. 2026-08-05: asked what `-A` meant rather than running an unfamiliar flag blindly (good instinct, worth keeping); then, told only that `-A` stages *everything that changed*, correctly reasoned unprompted that `tasks.db` would still be skipped because it's in `.gitignore` — connected two separately-learned pieces on his own. Correctly predicted that `git push` to an empty remote sends the entire history, not just the newest commit. Weak spot: wrote the commit message "Section 8" for a commit containing section 6's work — message described the calendar, not the change
+- evidence: correctly predicted `git init` creates a hidden `.git` folder; ran it in the wrong directory (D:\Claude instead of the project folder), diagnosed and fixed it himself after being shown the mismatch; correctly predicted the untracked-files delete was safe; needed a re-explanation to grasp add-vs-commit ("I don't understand what all of this does") — after the save-game analogy, completed add → commit → git config → commit successfully; afterward asked "what's git for" twice (mechanics landed before purpose did) — after a "what problem does it solve" reframe, correctly explained in his own words that git lets you revert to a past checkpoint when something breaks; second add+commit cycle (index.html) run cleanly and independently, correctly explained why `add` must precede `commit` ("otherwise we would be committing an empty list"). 2026-08-02: created `.gitignore` correctly from a described spec (`.vs/` and `tasks.db`), then independently verified it worked by re-running `git status` himself before being asked to. 2026-08-05: asked what `-A` meant rather than running an unfamiliar flag blindly (good instinct, worth keeping); then, told only that `-A` stages *everything that changed*, correctly reasoned unprompted that `tasks.db` would still be skipped because it's in `.gitignore` — connected two separately-learned pieces on his own. Correctly predicted that `git push` to an empty remote sends the entire history, not just the newest commit. Weak spot: wrote the commit message "Section 8" for a commit containing section 6's work — message described the calendar, not the change. 2026-08-05 (later): correctly predicted that adding an already-tracked file (`__pycache__/*.pyc`) to `.gitignore` would NOT remove it from `git status` — a real limitation of `.gitignore` most beginners miss — then confirmed it himself; ran `git rm -r --cached __pycache__` correctly to actually untrack it
 
 ## github-concept
 - status: practicing
@@ -270,25 +270,25 @@
 - evidence: installed pytest, wrote a trivial `test_sanity` function from a described spec, correctly predicted `pytest` would print "1 passed" both times (once before hitting the PATH issue, once after the `python -m pytest` workaround) — the mechanism prediction was right even though the first command itself failed for an unrelated reason. 2026-08-05: wrote `test_get_tasks` using Flask's `app.test_client()` from a described spec — code was correct on first save and "2 passed" ran fine, but this was pattern-matched, not understood: when asked directly, said "I didn't understand anything in test_get_tasks and test_post_task." Rebuilt from scratch in plain language (no code): correctly explained `test_client()` as a stand-in browser after one nudge, correctly predicted a broken server would make the assert fail and pytest report which one, and on a second attempt gave a complete, correct walkthrough unprompted ("creates a fake browser, pulls the data from /api/tasks, check if it was successful, check if the data was valid"). Real understanding now demonstrated — the earlier evidence line overstated it. Rebuilt `test_post_task` from concept-first questioning: correctly identified unprompted that a real test needs to check the task "actually shows up," not just that the request returned success — the stronger-test-vs-weaker-test distinction, self-derived. Wrote the full POST/verify/cleanup sequence correctly across three incremental saves (extract id from response, re-GET and check membership with `any(...)`, then `DELETE` via the section-6 route to clean up); correctly predicted "3 passed" and confirmed it himself
 
 ## path-environment-variable
-- status: introduced
+- status: practicing
 - depends-on: local-dev-environment
 - introduced: 2026-08-05
 - last-reviewed: 2026-08-05
-- evidence: hit `pytest : term not recognized` after install; didn't recall the earlier gunicorn PATH warning cold when asked ("I don't recall"), but understood the explanation once given (PATH = folders the terminal searches for bare commands) and successfully used the `python -m pytest` workaround unprompted-thereafter, confirming "1 passed in 0.03s" himself in his own terminal
+- evidence: hit `pytest : term not recognized` after install; didn't recall the earlier gunicorn PATH warning cold when asked ("I don't recall"), but understood the explanation once given (PATH = folders the terminal searches for bare commands) and successfully used the `python -m pytest` workaround unprompted-thereafter, confirming "1 passed in 0.03s" himself in his own terminal. 2026-08-05 (later): asked unprompted whether the fix could be permanent rather than living with the workaround; ran the `[Environment]::SetEnvironmentVariable(...)` command himself, closed and reopened his terminal, and confirmed plain `pytest` worked afterward — then correctly reasoned that the same folder held gunicorn too, but that it changes nothing there since gunicorn can't run on Windows regardless of PATH
 
 ## input-validation
 - status: practicing
 - depends-on: full-crud
 - introduced: 2026-08-01
-- last-reviewed: 2026-08-01
-- evidence: proposed the guard-clause approach himself ("check if the text is either empty or spaces only, then just use return at the top of the click event listener"); wrote the `.trim() === ""` condition correctly, needed two attempts to get `if` statement syntax right (JS doesn't use `then`)
+- last-reviewed: 2026-08-05
+- evidence: proposed the guard-clause approach himself ("check if the text is either empty or spaces only, then just use return at the top of the click event listener"); wrote the `.trim() === ""` condition correctly, needed two attempts to get `if` statement syntax right (JS doesn't use `then`). 2026-08-05: applied the same idea server-side — correctly explained that `data["text"]` on a missing key raises `KeyError` before being told, wrote the `"text" not in data or "quadrant" not in data` guard clause correctly from a description
 
 ## error-handling
-- status: seed
+- status: practicing
 - depends-on: request-response-cycle
-- introduced: —
-- last-reviewed: —
-- evidence: —
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: correctly explained that a missing dict key raises `KeyError` and would crash the route; understood the distinction between an uncaught crash (generic `500`) and a deliberate, checked error response (`400` with a clear message); correctly predicted a test hitting the unfixed route would get `500` back, then wrote and confirmed the fix and the proving test (`test_post_task_missing_field`)
 
 ## dependency-management
 - status: practicing
