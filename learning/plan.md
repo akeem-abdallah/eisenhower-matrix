@@ -74,7 +74,7 @@
 **Deliverable:** A real public URL, usable from any device, anywhere.
 **Concepts:** environment-variables, git-based-deploy, github-concept, production-vs-dev-server
 **Tasks:**
-- [ ] 8.1 Commit section 6's work, create a GitHub repo, and push the project to it
+- [x] 8.1 Commit section 6's work, create a GitHub repo, and push the project to it — live at github.com/blech0/eisenhower-matrix
 - [ ] 8.2 Add `requirements.txt` so a fresh machine knows what to install
 - [ ] 8.3 Add a production web server (gunicorn) and understand why Flask's dev server isn't it
 - [ ] 8.4 Deploy on Render, using an environment variable for the port
