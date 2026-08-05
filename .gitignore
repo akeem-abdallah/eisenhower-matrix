@@ -1,3 +1,4 @@
 .vs/
 tasks.db
 __pycache__/
+*.log
