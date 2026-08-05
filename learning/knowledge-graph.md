@@ -290,6 +290,13 @@
 - last-reviewed: 2026-08-05
 - evidence: asked what happens when a fresh machine with no Flask hits `from flask import Flask`, answered correctly and immediately ("it would error because flask isnt installed there"); correctly predicted `pip freeze` would list far more than Flask, reasoning from his own earlier decision to install globally rather than into a virtual environment — then saw the ~200-line reality. Asked how many of Flask's eight `pip freeze` lines belong in `requirements.txt`, answered "just flask because pip installs the rest" unprompted — the direct-vs-transitive distinction, with the correct mechanism. Authored `requirements.txt` himself; correctly predicted `pip install -r requirements.txt` would report the requirement already satisfied. First contact, so capped at practicing despite a clean run
 
+## production-vs-dev-server
+- status: practicing
+- depends-on: local-dev-server
+- introduced: 2026-08-05
+- last-reviewed: 2026-08-05
+- evidence: had noticed Flask's dev-server warning all week but read it as an error rather than a purpose distinction ("I don't like seeing red in there") — corrected: dev server is single-request, built for convenience during coding, not load. First guess at the concrete failure mode ("it would crash") was wrong but reasonable; corrected to "queues and waits" rather than crashing. Transferred the install→pin-in-requirements.txt pattern from Flask to gunicorn unprompted, predicting the install command correctly before running it. Told plainly that gunicorn cannot run on Windows at all and verification would have to wait for Render — not yet demonstrated, since nothing has deployed yet
+
 ## environment-variables
 - status: seed
 - depends-on: deployment-concept
