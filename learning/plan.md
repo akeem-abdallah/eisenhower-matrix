@@ -71,7 +71,7 @@
 **Note (2026-08-05):** moved to *after* section 8. Shipping is the skill that hasn't been practiced yet; tests on an app nobody can reach are the lower-value half.
 **Tasks:**
 - [x] 7.1 Install `pytest` and write one trivial test to confirm the test runner itself works
-- [ ] 7.2 Write a test for `GET /api/tasks` using Flask's test client
+- [x] 7.2 Write a test for `GET /api/tasks` using Flask's test client
 - [ ] 7.3 Write a test for `POST /api/tasks` that confirms an added task is actually retrievable after
 - [ ] 7.4 Add one real error-handling case to `app.py` (a request missing a required field) and a test proving it doesn't crash the server
 - [ ] 7.5 Confirm: one command (`pytest`) runs everything and reports pass/fail

@@ -267,7 +267,7 @@
 - depends-on: full-crud
 - introduced: 2026-08-05
 - last-reviewed: 2026-08-05
-- evidence: installed pytest, wrote a trivial `test_sanity` function from a described spec, correctly predicted `pytest` would print "1 passed" both times (once before hitting the PATH issue, once after the `python -m pytest` workaround) — the mechanism prediction was right even though the first command itself failed for an unrelated reason
+- evidence: installed pytest, wrote a trivial `test_sanity` function from a described spec, correctly predicted `pytest` would print "1 passed" both times (once before hitting the PATH issue, once after the `python -m pytest` workaround) — the mechanism prediction was right even though the first command itself failed for an unrelated reason. 2026-08-05: wrote `test_get_tasks` using Flask's `app.test_client()` from a described spec — the import, the client creation, the `.get()` call, and the status-code/list-shape assertions all correct on first save; correctly predicted "2 passed" before running, confirmed himself in his own terminal
 
 ## path-environment-variable
 - status: introduced
