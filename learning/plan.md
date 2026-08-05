@@ -72,7 +72,7 @@
 **Tasks:**
 - [x] 7.1 Install `pytest` and write one trivial test to confirm the test runner itself works
 - [x] 7.2 Write a test for `GET /api/tasks` using Flask's test client
-- [ ] 7.3 Write a test for `POST /api/tasks` that confirms an added task is actually retrievable after
+- [x] 7.3 Write a test for `POST /api/tasks` that confirms an added task is actually retrievable after
 - [ ] 7.4 Add one real error-handling case to `app.py` (a request missing a required field) and a test proving it doesn't crash the server
 - [ ] 7.5 Confirm: one command (`pytest`) runs everything and reports pass/fail
 
